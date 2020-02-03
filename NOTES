@@ -1,3 +1,43 @@
 DSA Linked List notes
 
 
+Linked lists
+
+ - Allocate blocks of memory on demand. these blocks of memory are connected by a mechanism called "linking". 
+
+ - The unit of memory holding a single itme in a linked list is a node in the list. Node can be allocated from anywhere in memory and isn't required to be next to previously allocated node.
+
+ - Work as a series of nodes. Each node has a value and a pointer to the next node in the sequence. This is called a "singly linked list".
+ - Another type is "doubly linked list", where nodes contain a pointer to the previous node, as well as the next.
+
+ - node class named with "_ (underscore)" indicates the node class is "private class" and should not be accessible by anyone other than the linked list class.
+
+Insertion
+ 
+  - 3 different implementations of the insert operation in a list.
+
+    - at the beginning of the list (insertFirst).
+        - create new node item
+        - point to the head of that new node.
+
+    - at the end of the list (insertLast).
+        - create new node item
+        - check to see if the list is empty, if it is, then insert the new item as the only item.
+        - start at the beginning of the list and move through the list until you reach the end of the list.
+        - set the end node's "next" pointer to the new node.
+        - the new node's "next" points is null(indicating that the new node now is the last node on the list.)
+
+    - anywhere in the list, between 2 nodes(insert, insertAt) 
+
+Retrieval
+ - straightforward, just traverse the list camparing the value stored in each node with the value you are searching. When the item is found, return the node.
+
+Removal 
+ - when deleting an item, there are 3 cases that you need to consider. you can -
+  - delete from the beginning of the list.
+  - delete from the end of the list.
+  - delete a node between 2 other nodes.
+
+Cache locality
+
+ - Loads data from nearby the data you are accessing and caches it so it can more quickly load. This works well with arrays because they have contiguous memory, from where a big chunk of the array gets loaded into the caches. Nodes in linked lists are spread throughout memory and is unlikely subsequent nodes will get loaded into the caches.
